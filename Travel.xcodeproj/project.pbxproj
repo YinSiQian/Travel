@@ -78,6 +78,7 @@
 		0AA9524A2282DA03000018C7 /* SQTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQTextView.m; sourceTree = "<group>"; };
 		1BD25FB941D4DB46EEAD2FCC /* Pods_Travel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E52B0D386117A8D78064BC6 /* Pods-Travel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.release.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.release.xcconfig"; sourceTree = "<group>"; };
+		8BCC6FEE22832022003CFBC2 /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
 		C97C048CE8058DC781AD1F34 /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +262,7 @@
 				0AA951E52282744E000018C7 /* AppDelegate.m */,
 				0AA9521C22827B45000018C7 /* PrefixHeader.pch */,
 				0AA95226228281A7000018C7 /* SQMacros.h */,
+				8BCC6FEE22832022003CFBC2 /* URLMacros.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";

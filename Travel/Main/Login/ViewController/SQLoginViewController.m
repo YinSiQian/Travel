@@ -91,6 +91,26 @@
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
 //        @strongify(self);
         NSLog(@"123456");
+        [self_weak_ login];
+    }];
+    
+}
+
+#pragma mark -- login
+
+- (void)login {
+    [self showHUDWithMessage:@"正在登录中..."];
+    NSDictionary *param = @{@"mobile": self.phoneTF.text, @"password": self.passwordTF.text};
+    [SQNetworkManager POST:sq_url_combine(user_login) parameters:param success:^(NSDictionary * _Nonnull data) {
+        [self hideHUD];
+        [self showSuccessWithMessage:@"登录成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismiss];
+        });
+        NSLog(@"data----->%@", data);
+    } fail:^(NSError * _Nonnull error) {
+        NSLog(@"error----->%@", error);
+
     }];
     
 }
@@ -101,10 +121,6 @@
     SQRegisterViewController *re = [SQRegisterViewController new];
     [self.navigationController pushViewController:re animated:YES];
 }
-
-//- (void)forget {
-//
-//}
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -50,8 +50,9 @@
 
 - (void)showHUDWithMessage:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeDeterminate;
+    hud.mode = MBProgressHUDModeIndeterminate;
     hud.removeFromSuperViewOnHide = YES;
+    hud.label.text = message;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2.0];
 }
@@ -60,6 +61,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.removeFromSuperViewOnHide = YES;
+    hud.label.text = message;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2.0];
 }
