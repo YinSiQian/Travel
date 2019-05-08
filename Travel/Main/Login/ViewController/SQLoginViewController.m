@@ -55,22 +55,23 @@
     
     UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(20, self.phoneTF.maxY, self.phoneTF.width, 1)];
     line1.backgroundColor = kThemeColor;
+    line1.backgroundColor = [kThemeColor colorWithAlphaComponent:0.3];
     [self.view addSubview:line1];
     
     self.passwordTF = [[UITextField alloc]initWithFrame:CGRectMake(20, self.phoneTF.maxY + 30, kScreen_width - 40, 40)];
     self.passwordTF.font = [UIFont systemFontOfSize:15];
-    self.passwordTF.tintColor = [kThemeColor colorWithAlphaComponent:0.6];
+    self.passwordTF.tintColor = kThemeColor;
     self.passwordTF.placeholder = @"请输入密码";
     self.passwordTF.borderStyle = UITextBorderStyleNone;
     self.passwordTF.secureTextEntry = YES;
     [self.view addSubview:self.passwordTF];
     
     UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(20, self.passwordTF.maxY, self.phoneTF.width, 1)];
-    line2.backgroundColor = [kThemeColor colorWithAlphaComponent:0.6];
+    line2.backgroundColor = [kThemeColor colorWithAlphaComponent:0.3];
     [self.view addSubview:line2];
     
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(40, self.passwordTF.maxY + 80, kScreen_width - 80, 40)];
-    self.loginBtn.backgroundColor = [kThemeColor colorWithAlphaComponent:0.4];
+    self.loginBtn.backgroundColor = kThemeColor;
     self.loginBtn.layer.cornerRadius = 20;
     [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     [self.loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -91,14 +92,6 @@
 //        @strongify(self);
         NSLog(@"123456");
     }];
-    
-    
-//    UIButton *forgetPasswordBtn = [[UIButton alloc]initWithFrame:CGRectMake((kScreen_width - 100) / 2, self.loginBtn.maxY + 20, 100, 30)];
-//    [forgetPasswordBtn setTitle:@"忘记密码?" forState:UIControlStateNormal];
-//    forgetPasswordBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-//    [forgetPasswordBtn setTitleColor:kLightDarkColor forState:UIControlStateNormal];
-//    [self.view addSubview:forgetPasswordBtn];
-//    [forgetPasswordBtn addTarget:self action:@selector(forget) forControlEvents:UIControlEventTouchUpInside];
     
 }
 

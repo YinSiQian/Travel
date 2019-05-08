@@ -40,31 +40,31 @@
     [self.view addSubview:self.phoneTF];
     
     UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(20, self.phoneTF.maxY, self.phoneTF.width, 1)];
-    line1.backgroundColor = kThemeColor;
+    line1.backgroundColor = [kThemeColor colorWithAlphaComponent:0.3];
     [self.view addSubview:line1];
     
     self.passwordTF = [[UITextField alloc]initWithFrame:CGRectMake(20, self.phoneTF.maxY + 30, kScreen_width - 40, 40)];
     self.passwordTF.font = [UIFont systemFontOfSize:15];
-    self.passwordTF.tintColor = [kThemeColor colorWithAlphaComponent:0.6];
+    self.passwordTF.tintColor = kThemeColor;
     self.passwordTF.placeholder = @"请输入密码(至少6位)";
     self.passwordTF.borderStyle = UITextBorderStyleNone;
     self.passwordTF.secureTextEntry = YES;
     [self.view addSubview:self.passwordTF];
     
     UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(20, self.passwordTF.maxY, self.phoneTF.width, 1)];
-    line2.backgroundColor = [kThemeColor colorWithAlphaComponent:0.6];
+    line2.backgroundColor = [kThemeColor colorWithAlphaComponent:0.3];
     [self.view addSubview:line2];
     
     self.passwordTF2 = [[UITextField alloc]initWithFrame:CGRectMake(20, self.passwordTF.maxY + 30, kScreen_width - 40, 40)];
     self.passwordTF2.font = [UIFont systemFontOfSize:15];
-    self.passwordTF2.tintColor = [kThemeColor colorWithAlphaComponent:0.6];
+    self.passwordTF2.tintColor = kThemeColor;
     self.passwordTF2.placeholder = @"请再次输入密码(至少6位)";
     self.passwordTF2.borderStyle = UITextBorderStyleNone;
     self.passwordTF2.secureTextEntry = YES;
     [self.view addSubview:self.passwordTF2];
     
     UIView *line3 = [[UIView alloc]initWithFrame:CGRectMake(20, self.passwordTF2.maxY, self.phoneTF.width, 1)];
-    line3.backgroundColor = [kThemeColor colorWithAlphaComponent:0.6];
+    line3.backgroundColor = [kThemeColor colorWithAlphaComponent:0.3];
     [self.view addSubview:line3];
     
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(40, self.passwordTF2.maxY + 80, kScreen_width - 80, 40)];
