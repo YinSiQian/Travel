@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SQLoginViewController : SQBaseViewController
 
+- (instancetype)initWithFinishAction:(void(^)(void))finishAction;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,9 +17,20 @@
 
 @property (nonatomic, strong) UITextField *passwordTF;
 
+@property (nonatomic, copy) void(^complectionHandler)(void);
+
+
 @end
 
 @implementation SQLoginViewController
+
+- (instancetype)initWithFinishAction:(void (^)(void))finishAction {
+    if (self = [super init]) {
+        self.complectionHandler = finishAction;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -104,13 +115,14 @@
     [SQNetworkManager POST:sq_url_combine(user_login) parameters:param success:^(NSDictionary * _Nonnull data) {
         [self hideHUD];
         [self showSuccessWithMessage:@"登录成功"];
+        [[SQUserModel shared] initWithDict:data[@"data"]];
+        NSLog(@"user data--->%@ %@", [SQUserModel shared].phoneNum, [SQUserModel shared].accessToken);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self dismiss];
         });
-        NSLog(@"data----->%@", data);
     } fail:^(NSError * _Nonnull error) {
         NSLog(@"error----->%@", error);
-
+        [self showFailureWithMessage:error.localizedDescription];
     }];
     
 }
@@ -124,6 +136,9 @@
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.complectionHandler) {
+        self.complectionHandler();
+    }
 }
 
 
