@@ -8,8 +8,12 @@
 
 #import "SQHomeViewController.h"
 #import "SQTravelPlanDetailViewController.h"
+#import "SQHomeListCell.h"
+
 
 @interface SQHomeViewController ()
+
+@property (nonatomic, assign) NSInteger page;
 
 @end
 
@@ -17,7 +21,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.page = 1;
+    [self setupSubviews];
+    [self loadData];
+}
+
+- (void)setupSubviews {
     [self.view addSubview:self.sq_tableView];
+    self.sq_tableView.estimatedRowHeight = 100;
+    self.sq_tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+#pragma mark -- Load Data
+
+- (void)loadData {
+    
+    NSDictionary *params = @{@"page": @(self.page), @"rows": @(10)};
+    [SQNetworkManager GET:sq_url_combine(list) parameters:params success:^(NSDictionary * _Nonnull data) {
+        NSLog(@"data--->%@", data);
+    } fail:^(NSError * _Nonnull error) {
+        
+    }];
+    
 }
 
 #pragma mark -- UITableViewDelegate && UITableViewDataSource
@@ -27,11 +52,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = @"1";
+    SQHomeListCell *cell = [SQHomeListCell cellWithTableView:tableView];
     return cell;
 }
 

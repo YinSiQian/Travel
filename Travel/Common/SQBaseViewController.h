@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, SQRefreshType) {
 //交由子类重载, 刷新数据
 - (void)refreshData;
 
-
+- (void)setupSubviews;
 
 @end
 

@@ -31,6 +31,10 @@
     self.navBarAlpha = @"1.0";
 }
 
+- (void)setupSubviews {
+    
+}
+
 #pragma mark -- UITableViewDelegate & UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

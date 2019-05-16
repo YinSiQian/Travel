@@ -12,6 +12,25 @@
 /// USER
 
 #define user_login           @"user/login"
+#define user_register        @"user/register"
+
+/// Travel
+
+#define publish              @"travel/publish"
+
+#define comment              @"travel/comment"
+
+#define love                 @"travel/love"    //是否收藏某个帖子
+
+#define isLove               @"travel/isLove"
+
+#define list                 @"travel/list"
+
+#define favoriteList         @"travel/favoriteList"
+
+#define detail               @"travel/detail"
+
+#define pubList              @"travel/pubList"
 
 
 #endif /* URLMacros_h */

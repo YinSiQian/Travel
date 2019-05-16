@@ -15,9 +15,9 @@ typedef void(^failure)(NSError *error);
 
 @interface SQNetworkManager : NSObject
 
-+ (NSURLSessionDataTask *)GET:(NSString *)urlString parameters:(NSDictionary *)parameters success:(complectionHandler)success fail:(failure)fail;
++ (NSURLSessionDataTask *)GET:(NSString *)urlString parameters:(nullable NSDictionary *)parameters success:(complectionHandler)success fail:(failure)fail;
 
-+ (NSURLSessionDataTask *)POST:(NSString *)urlString parameters:(NSDictionary *)parameters success:(complectionHandler)success fail:(failure)fail;
++ (NSURLSessionDataTask *)POST:(NSString *)urlString parameters:(nullable NSDictionary *)parameters success:(complectionHandler)success fail:(failure)fail;
 
 @end
 

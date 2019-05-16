@@ -29,6 +29,12 @@
 		0AA952452282BF03000018C7 /* SQHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA952442282BF03000018C7 /* SQHelp.m */; };
 		0AA952482282C57D000018C7 /* SQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA952472282C57D000018C7 /* SQRegisterViewController.m */; };
 		0AA9524B2282DA03000018C7 /* SQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA9524A2282DA03000018C7 /* SQTextView.m */; };
+		8B1B032E228D8F9800FA445A /* SQMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B032D228D8F9800FA445A /* SQMineHeaderView.m */; };
+		8B1B0331228D93A900FA445A /* SQSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B0330228D93A900FA445A /* SQSettingViewController.m */; };
+		8B1B0334228D98C700FA445A /* SQUserPublishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B0333228D98C700FA445A /* SQUserPublishedViewController.m */; };
+		8B1B0337228D98D900FA445A /* SQUserFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B0336228D98D900FA445A /* SQUserFavoriteViewController.m */; };
+		8B1B033A228D9A9600FA445A /* SQBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B0339228D9A9600FA445A /* SQBaseCell.m */; };
+		8B1B033D228D9B9000FA445A /* SQHomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B033C228D9B9000FA445A /* SQHomeListCell.m */; };
 		9EFD04FC6BDEA48DC1E5F476 /* Pods_Travel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD25FB941D4DB46EEAD2FCC /* Pods_Travel.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +87,18 @@
 		0AA9524A2282DA03000018C7 /* SQTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQTextView.m; sourceTree = "<group>"; };
 		1BD25FB941D4DB46EEAD2FCC /* Pods_Travel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E52B0D386117A8D78064BC6 /* Pods-Travel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.release.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.release.xcconfig"; sourceTree = "<group>"; };
+		8B1B032C228D8F9800FA445A /* SQMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SQMineHeaderView.h; path = Travel/Application/SQMineHeaderView.h; sourceTree = SOURCE_ROOT; };
+		8B1B032D228D8F9800FA445A /* SQMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SQMineHeaderView.m; path = Travel/Application/SQMineHeaderView.m; sourceTree = SOURCE_ROOT; };
+		8B1B032F228D93A900FA445A /* SQSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQSettingViewController.h; sourceTree = "<group>"; };
+		8B1B0330228D93A900FA445A /* SQSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQSettingViewController.m; sourceTree = "<group>"; };
+		8B1B0332228D98C700FA445A /* SQUserPublishedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQUserPublishedViewController.h; sourceTree = "<group>"; };
+		8B1B0333228D98C700FA445A /* SQUserPublishedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQUserPublishedViewController.m; sourceTree = "<group>"; };
+		8B1B0335228D98D900FA445A /* SQUserFavoriteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQUserFavoriteViewController.h; sourceTree = "<group>"; };
+		8B1B0336228D98D900FA445A /* SQUserFavoriteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQUserFavoriteViewController.m; sourceTree = "<group>"; };
+		8B1B0338228D9A9600FA445A /* SQBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQBaseCell.h; sourceTree = "<group>"; };
+		8B1B0339228D9A9600FA445A /* SQBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQBaseCell.m; sourceTree = "<group>"; };
+		8B1B033B228D9B9000FA445A /* SQHomeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQHomeListCell.h; sourceTree = "<group>"; };
+		8B1B033C228D9B9000FA445A /* SQHomeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQHomeListCell.m; sourceTree = "<group>"; };
 		8BCC6FEE22832022003CFBC2 /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
 		C97C048CE8058DC781AD1F34 /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +222,8 @@
 		0AA95201228274B6000018C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B1B033B228D9B9000FA445A /* SQHomeListCell.h */,
+				8B1B033C228D9B9000FA445A /* SQHomeListCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -221,6 +241,8 @@
 		0AA95203228274C7000018C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B1B032C228D8F9800FA445A /* SQMineHeaderView.h */,
+				8B1B032D228D8F9800FA445A /* SQMineHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +252,12 @@
 			children = (
 				0AA952122282756A000018C7 /* SQMineViewController.h */,
 				0AA952132282756A000018C7 /* SQMineViewController.m */,
+				8B1B032F228D93A900FA445A /* SQSettingViewController.h */,
+				8B1B0330228D93A900FA445A /* SQSettingViewController.m */,
+				8B1B0332228D98C700FA445A /* SQUserPublishedViewController.h */,
+				8B1B0333228D98C700FA445A /* SQUserPublishedViewController.m */,
+				8B1B0335228D98D900FA445A /* SQUserFavoriteViewController.h */,
+				8B1B0336228D98D900FA445A /* SQUserFavoriteViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -340,6 +368,8 @@
 				0AA952352282AE44000018C7 /* SQBaseViewController.m */,
 				0AA952492282DA03000018C7 /* SQTextView.h */,
 				0AA9524A2282DA03000018C7 /* SQTextView.m */,
+				8B1B0338228D9A9600FA445A /* SQBaseCell.h */,
+				8B1B0339228D9A9600FA445A /* SQBaseCell.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -491,24 +521,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B1B033A228D9A9600FA445A /* SQBaseCell.m in Sources */,
 				0AA9523C2282B2A4000018C7 /* SQTravelPlanPublishViewController.m in Sources */,
 				0AA9520B22827517000018C7 /* SQRootViewController.m in Sources */,
 				0AA9520E22827536000018C7 /* SQNavigationController.m in Sources */,
 				0A210F8522841EBB005668CA /* SQUserModel.m in Sources */,
+				8B1B0331228D93A900FA445A /* SQSettingViewController.m in Sources */,
 				0AA9523F2282B829000018C7 /* UINavigationController+Extension.m in Sources */,
 				0AA951F422827450000018C7 /* main.m in Sources */,
 				0AA952422282BE95000018C7 /* SQDeviceMsg.m in Sources */,
 				0AA9522522827F9C000018C7 /* SQHTTPSessionManager.m in Sources */,
+				8B1B032E228D8F9800FA445A /* SQMineHeaderView.m in Sources */,
 				0AA952302282A989000018C7 /* UIColor+Extension.m in Sources */,
 				0AA951E62282744E000018C7 /* AppDelegate.m in Sources */,
 				0AA952332282ACEF000018C7 /* UIView+Extension.m in Sources */,
 				0AA952452282BF03000018C7 /* SQHelp.m in Sources */,
 				0AA952112282755B000018C7 /* SQHomeViewController.m in Sources */,
+				8B1B0337228D98D900FA445A /* SQUserFavoriteViewController.m in Sources */,
 				0AA952482282C57D000018C7 /* SQRegisterViewController.m in Sources */,
+				8B1B033D228D9B9000FA445A /* SQHomeListCell.m in Sources */,
 				0AA952362282AE44000018C7 /* SQBaseViewController.m in Sources */,
 				0AA9521B228275A1000018C7 /* SQLoginViewController.m in Sources */,
 				0AA952392282B149000018C7 /* SQTravelPlanDetailViewController.m in Sources */,
 				0AA9522222827E92000018C7 /* SQNetworkManager.m in Sources */,
+				8B1B0334228D98C700FA445A /* SQUserPublishedViewController.m in Sources */,
 				0AA9522D22828596000018C7 /* UIViewController+Extension.m in Sources */,
 				0AA952142282756A000018C7 /* SQMineViewController.m in Sources */,
 				0AA9524B2282DA03000018C7 /* SQTextView.m in Sources */,

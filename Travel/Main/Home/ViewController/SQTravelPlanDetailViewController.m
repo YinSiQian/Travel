@@ -16,7 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"详情";
 }
+
+- (void)setupSubviews {
+    
+    [self.view addSubview:self.sq_tableView];
+}
+
 
 
 

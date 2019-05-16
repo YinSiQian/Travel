@@ -17,7 +17,13 @@
 
 @property (nonatomic, strong) UIButton *chooseDateBtn;
 
+@property (nonatomic, strong) UIButton *chooseEndDateBtn;
+
 @property (nonatomic, assign) BOOL isChooseDate;
+
+@property (nonatomic, copy) NSString *startDate;
+
+@property (nonatomic, copy) NSString *endDate;
 
 @end
 
@@ -84,7 +90,7 @@
     }];
     
     UILabel *date = [UILabel new];
-    date.text = @"出行时间段:";
+    date.text = @"出发时间:";
     date.font = [UIFont boldSystemFontOfSize:16];
     [self.view addSubview:date];
     
@@ -93,8 +99,18 @@
         make.top.equalTo(title.mas_bottom).offset(30);
     }];
     
+    UILabel *endDate = [UILabel new];
+    endDate.text = @"结束时间:";
+    endDate.font = [UIFont boldSystemFontOfSize:16];
+    [self.view addSubview:endDate];
+    
+    [endDate mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(15);
+        make.top.equalTo(date.mas_bottom).offset(30);
+    }];
+    
     self.chooseDateBtn = [UIButton new];
-    [self.chooseDateBtn setTitle:@"选择时间>" forState:UIControlStateNormal];
+    [self.chooseDateBtn setTitle:@"选择出发日期>" forState:UIControlStateNormal];
     [self.chooseDateBtn setTitleColor:kThemeColor forState:UIControlStateNormal];
     self.chooseDateBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.chooseDateBtn addTarget:self action:@selector(chooseData) forControlEvents:UIControlEventTouchUpInside];
@@ -106,13 +122,25 @@
         make.right.equalTo(self.view).offset(-15);
     }];
     
+    self.chooseEndDateBtn = [UIButton new];
+    [self.chooseEndDateBtn setTitle:@"选择结束日期>" forState:UIControlStateNormal];
+    [self.chooseEndDateBtn setTitleColor:kThemeColor forState:UIControlStateNormal];
+    self.chooseEndDateBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [self.chooseEndDateBtn addTarget:self action:@selector(chooseEndData) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.chooseEndDateBtn];
+    
+    [self.chooseEndDateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(endDate);
+        make.right.equalTo(self.view).offset(-15);
+    }];
+    
     UILabel *des = [UILabel new];
     des.text = @"出行描述:";
     des.font = [UIFont boldSystemFontOfSize:16];
     [self.view addSubview:des];
     
     [des mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(date.mas_bottom).offset(30);
+        make.top.equalTo(endDate.mas_bottom).offset(30);
         make.left.equalTo(self.view).offset(15);
     }];
     
@@ -136,6 +164,10 @@
 
 #pragma mark -- events
 
+- (void)chooseEndData {
+    
+}
+
 - (void)chooseData {
     
 }
@@ -145,6 +177,22 @@
 }
 
 - (void)publishPlan {
+    
+    if (self.startDate && self.endDate && self.titleTF.text.length > 0 && self.textView.content.length > 0) {
+        
+        NSString *date = [NSString stringWithFormat:@"%@ - %@", self.startDate, self.endDate];
+        NSDictionary *params = @{@"title": self.titleTF.text,
+                                 @"date": date,
+                                 @"content": self.textView.content};
+        [SQNetworkManager POST:sq_url_combine(publish) parameters:params success:^(NSDictionary * _Nonnull data) {
+            
+            NSLog(@"data ----> %@", data);
+            
+        } fail:^(NSError * _Nonnull error) {
+            
+        }];
+    }
+    
     
 }
 

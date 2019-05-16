@@ -81,8 +81,8 @@
 #pragma mark -- events
 
 - (void)publishTravelPlan {
-    SQTravelPlanPublishViewController *publish = [SQTravelPlanPublishViewController new];
-    SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:publish];
+    SQTravelPlanPublishViewController *pb = [SQTravelPlanPublishViewController new];
+    SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:pb];
     [self presentViewController:nav animated:YES completion:nil];
 }
 
