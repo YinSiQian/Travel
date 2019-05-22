@@ -18,19 +18,19 @@
 
 #define publish              @"travel/publish"
 
-#define comment              @"travel/comment"
+#define plan_comment         @"travel/comment"
 
-#define love                 @"travel/love"    //是否收藏某个帖子
+#define plan_love            @"travel/love"    //是否收藏某个帖子
 
-#define isLove               @"travel/isLove"
+#define plan_isLove          @"travel/isLove"
 
-#define list                 @"travel/list"
+#define plan_list            @"travel/list"
 
-#define favoriteList         @"travel/favoriteList"
+#define plan_favoriteList    @"travel/favoriteList"
 
 #define detail               @"travel/detail"
 
-#define pubList              @"travel/pubList"
+#define plan_pubList         @"travel/pubList"
 
 
 #endif /* URLMacros_h */

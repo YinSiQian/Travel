@@ -10,6 +10,8 @@
 #import "SQLoginViewController.h"
 #import "SQMineHeaderView.h"
 #import "SQSettingViewController.h"
+#import "SQUserFavoriteViewController.h"
+#import "SQUserPublishedViewController.h"
 
 
 @interface SQMineViewController ()<SQMineHeaderViewDelegate>
@@ -66,6 +68,17 @@
     cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        SQUserPublishedViewController *pb = [SQUserPublishedViewController new];
+        [self.navigationController pushViewController:pb animated:YES];
+    } else {
+        SQUserFavoriteViewController *ft = [SQUserFavoriteViewController new];
+        [self.navigationController pushViewController:ft animated:YES];
+    }
 }
 
 #pragma mark -- SQMineHeaderViewDelegate

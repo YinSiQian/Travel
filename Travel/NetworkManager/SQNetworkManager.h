@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^complectionHandler)(NSDictionary *data);
-typedef void(^failure)(NSError *error);
+typedef void(^complectionHandler)( NSDictionary * _Nullable data);
+typedef void(^failure)(NSError * _Nullable error);
 
 @interface SQNetworkManager : NSObject
 

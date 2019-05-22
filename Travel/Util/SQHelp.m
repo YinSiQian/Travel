@@ -24,4 +24,13 @@
     return NO;
 }
 
++ (NSString *)formatterTimestamp:(long)timestamp {
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    return [formatter stringFromDate:date];
+    
+}
+
 @end

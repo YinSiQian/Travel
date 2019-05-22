@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) CGFloat safeTop;
 
+@property (nonatomic, assign) CGFloat safeBottom;
+
 ///navigationBar
 @property (nonatomic, copy) NSString *navBarAlpha;
 

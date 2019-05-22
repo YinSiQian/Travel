@@ -56,4 +56,6 @@
     return [self colorWithHexString:color alpha:1.0f];
 }
 
+
+
 @end

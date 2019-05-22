@@ -7,10 +7,15 @@
 //
 
 #import "SQBaseViewController.h"
+#import "SQHomePlanModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SQTravelPlanDetailViewController : SQBaseViewController
+
+@property (nonatomic, strong) SQHomePlanModel *model;
+
+@property (nonatomic, assign) NSInteger detailHeight;
 
 @end
 

@@ -12,5 +12,6 @@ target 'Travel' do
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'ReactiveObjC', '~> 3.1.0'
   pod 'SDWebImage', '~> 5.0.1'
-
+  pod 'FSCalendar', '~> 2.8.0'
+  
 end

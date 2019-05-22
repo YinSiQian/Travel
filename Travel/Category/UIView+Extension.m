@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Extension.h"
+#import "MBProgressHUD.h"
 
 @implementation UIView (Extension)
 
@@ -116,5 +117,60 @@
 - (CGFloat)maxY {
     return self.frame.origin.y + self.frame.size.height;
 }
+
+- (void)showHUD {
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
+}
+
+- (void)showHUDWithMessage:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.removeFromSuperViewOnHide = YES;
+    hud.label.text = message;
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:2.0];
+}
+
+- (void)showMessage:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.removeFromSuperViewOnHide = YES;
+    hud.label.text = message;
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:2.0];
+}
+
+- (void)showSuccessWithMessage:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.removeFromSuperViewOnHide = YES;
+    // Set the custom view mode to show any view.
+    hud.mode = MBProgressHUDModeCustomView;
+    // Set an image view with a checkmark.
+    UIImage *image = [[UIImage imageNamed:@"Checkmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    hud.customView = [[UIImageView alloc] initWithImage:image];
+    // Optional label text.
+    hud.label.text = message;
+    
+    [hud hideAnimated:YES afterDelay:2.f];
+}
+
+- (void)showFailureWithMessage:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.removeFromSuperViewOnHide = YES;
+    // Set the custom view mode to show any view.
+    hud.mode = MBProgressHUDModeCustomView;
+    // Set an image view with a checkmark.
+    UIImage *image = [[UIImage imageNamed:@"error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    hud.customView = [[UIImageView alloc] initWithImage:image];
+    // Optional label text.
+    hud.label.text = message;
+    
+    [hud hideAnimated:YES afterDelay:2.f];
+}
+
+- (void)hideHUD {
+    [MBProgressHUD hideHUDForView:self animated:YES];
+}
+
 
 @end

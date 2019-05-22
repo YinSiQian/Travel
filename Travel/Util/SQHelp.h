@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isSpecialShapedScreen;
 
++ (NSString *)formatterTimestamp:(long)timestamp;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

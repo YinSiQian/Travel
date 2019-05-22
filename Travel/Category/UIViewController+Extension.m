@@ -13,9 +13,14 @@
 @implementation UIViewController (Extension)
 
 @dynamic safeTop;
+@dynamic safeBottom;
 
 - (CGFloat)safeTop {
     return self.navigationController.navigationBar.height + [UIApplication sharedApplication].statusBarFrame.size.height;
+}
+
+- (CGFloat)safeBottom {
+    return [SQHelp isSpecialShapedScreen] ? 34 : 0;
 }
 
 - (void)setNavBarAlpha:(NSString *)navBarAlpha {

@@ -24,6 +24,11 @@
 
 @property (nonatomic, strong) UILabel *content;
 
+@property (nonatomic, strong) UIImageView *commentImage;
+
+@property (nonatomic, strong) UIImageView *dateImage;
+
+
 @end
 
 @implementation SQHomeListCell
@@ -72,12 +77,13 @@
     self.commentNum.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.commentNum];
     
-    self.userName.text = @"我一个人的宝宝";
-    self.title.text = @"发啦发啦发啦见覅我减肥啦";
-    self.date.text = @"出行时间: 2019-03-08 - 2019-05-04";
-    self.content.text = @"发甲方领取文件费力气减肥了就爱了就发了房间里去忘记发了穷家富路沁芳居发静安路附近阿拉基";
-    self.pubDate.text = @"2019年6月5号";
-    self.commentNum.text = @"已看: 1099";
+    self.dateImage = [UIImageView new];
+    self.dateImage.image = [UIImage imageNamed:@"icon_home_date"];
+    [self.contentView addSubview:self.dateImage];
+    
+    self.commentImage = [UIImageView new];
+    self.commentImage.image = [UIImage imageNamed:@"icon_home_comment"];
+    [self.contentView addSubview:self.commentImage];
     
 }
 
@@ -100,6 +106,11 @@
     }];
     
     [self.date mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.dateImage.mas_right).offset(5);
+        make.centerY.equalTo(self.dateImage);
+    }];
+    
+    [self.dateImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(65);
         make.top.equalTo(self.title.mas_bottom).offset(10);
     }];
@@ -121,8 +132,23 @@
         make.centerY.equalTo(self.pubDate);
     }];
     
+    [self.commentImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.commentNum);
+        make.right.equalTo(self.commentNum.mas_left).offset(-5);
+
+    }];
+    
 }
 
+- (void)setModel:(SQHomePlanModel *)model {
+    _model = model;
+    self.userName.text = model.userName;
+    self.title.text = model.title;
+    self.date.text = model.date;
+    self.content.text = model.content;
+    self.commentNum.text = [NSString stringWithFormat:@"%ld", model.num];
+    self.pubDate.text = [SQHelp formatterTimestamp:model.createTime / 1000];
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

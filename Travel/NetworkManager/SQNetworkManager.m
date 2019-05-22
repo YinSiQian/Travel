@@ -21,11 +21,20 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
-            success(responseObject);
+            NSInteger code = [responseObject[@"code"] integerValue];
+            if (code == 200) {
+                success(responseObject[@"data"]);
+            } else {
+                if (fail) {
+                    fail(nil);
+                }
+                [[UIApplication sharedApplication].keyWindow showFailureWithMessage:responseObject[@"msg"]];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (fail) {
             fail(error);
+            [[UIApplication sharedApplication].keyWindow showFailureWithMessage:error.localizedDescription];
         }
     }];
 }
@@ -41,11 +50,20 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
-            success(responseObject[@"data"]);
+            NSInteger code = [responseObject[@"code"] integerValue];
+            if (code == 200) {
+                success(responseObject[@"data"]);
+            } else {
+                if (fail) {
+                    fail(nil);
+                }
+                [[UIApplication sharedApplication].keyWindow showFailureWithMessage:responseObject[@"msg"]];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (fail) {
             fail(error);
+            [[UIApplication sharedApplication].keyWindow showFailureWithMessage:error.localizedDescription];
         }
     }];
 }

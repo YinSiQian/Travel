@@ -8,6 +8,7 @@
 
 #import "SQTravelPlanPublishViewController.h"
 #import "SQTextView.h"
+#import "SQCalendarView.h"
 
 @interface SQTravelPlanPublishViewController ()
 
@@ -24,6 +25,7 @@
 @property (nonatomic, copy) NSString *startDate;
 
 @property (nonatomic, copy) NSString *endDate;
+
 
 @end
 
@@ -165,11 +167,39 @@
 #pragma mark -- events
 
 - (void)chooseEndData {
-    
+    SQCalendarView *calendarView = [[SQCalendarView alloc]initWithFrame:UIScreen.mainScreen.bounds];
+    calendarView.complectionHandler = ^(NSString *date) {
+        NSLog(@"date--->%@", date);
+        if (date) {
+            self.endDate = date;
+            [self.chooseEndDateBtn setTitle:date forState:UIControlStateNormal];
+        }
+    };
+    if (self.startDate) {
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        formatter.dateFormat = @"yyyy-MM-dd";
+        calendarView.minimumDate = [formatter dateFromString:self.startDate];
+    }
+    [calendarView show];
 }
 
 - (void)chooseData {
     
+    SQCalendarView *calendarView = [[SQCalendarView alloc]initWithFrame:UIScreen.mainScreen.bounds];
+    calendarView.complectionHandler = ^(NSString *date) {
+        NSLog(@"date--->%@", date);
+        if (date) {
+            self.startDate = date;
+            [self.chooseDateBtn setTitle:date forState:UIControlStateNormal];
+        }
+
+    };
+    if (self.endDate) {
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        formatter.dateFormat = @"yyyy-MM-dd";
+        calendarView.maximumDate = [formatter dateFromString:self.endDate];
+    }
+    [calendarView show];
 }
 
 - (void)dismiss {
@@ -180,17 +210,23 @@
     
     if (self.startDate && self.endDate && self.titleTF.text.length > 0 && self.textView.content.length > 0) {
         
+        [self showMessage:@"正在发布中..."];
         NSString *date = [NSString stringWithFormat:@"%@ - %@", self.startDate, self.endDate];
         NSDictionary *params = @{@"title": self.titleTF.text,
                                  @"date": date,
                                  @"content": self.textView.content};
         [SQNetworkManager POST:sq_url_combine(publish) parameters:params success:^(NSDictionary * _Nonnull data) {
-            
-            NSLog(@"data ----> %@", data);
+            [self hideHUD];
+            [self showSuccessWithMessage:@"发布成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
             
         } fail:^(NSError * _Nonnull error) {
             
         }];
+    } else {
+        [self showFailureWithMessage:@"请完善信息后,再发布."];
     }
     
     

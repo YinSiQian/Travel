@@ -23,6 +23,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat maxX;
 @property (nonatomic, assign) CGFloat maxY;
 
+///hud
+- (void)showHUD;
+
+- (void)showMessage:(NSString *)message;
+
+- (void)showHUDWithMessage:(NSString *)message;
+
+- (void)showSuccessWithMessage:(NSString *)message;
+
+- (void)showFailureWithMessage:(NSString *)message;
+
+- (void)hideHUD;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -69,7 +69,7 @@
             }];
             footer.automaticallyRefresh = YES;
             footer.automaticallyHidden = YES;
-            [footer setTitle:@"加载完毕,请君使用。" forState:MJRefreshStateNoMoreData];
+            [footer setTitle:@"客官别拉了,已经到底了" forState:MJRefreshStateNoMoreData];
             self_weak_.sq_tableView.mj_footer = footer;
             if (refreshType != SQRefreshTypeAll) {
                 break;

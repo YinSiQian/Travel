@@ -19,5 +19,11 @@
 
 #define kThemeColor             [UIColor colorWithHexString:@"05b14b"]
 #define kLightDarkColor         [UIColor colorWithHexString:@"a9a9a9" alpha:1.0]
+#define kMaskColor          [UIColor colorWithHexString:@"282828" alpha:0.8]
+#define kDarkBackColor      [UIColor colorWithHexString:@"f7f7f7" alpha:1.0]
+#define kSeparatorColor     [UIColor colorWithHexString:@"e6e7e6" alpha:0.8]
+#define kBlackColor         [UIColor colorWithHexString:@"282828" alpha:1.0]
+#define kDarkGrayColor      [UIColor colorWithHexString:@"737373" alpha:1.0]
+
 
 #endif /* SQMacros_h */
