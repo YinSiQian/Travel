@@ -6,20 +6,17 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Collection (3).png",
+      "filename" : "favorite.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Collection (4).png",
+      "filename" : "favorite (1).png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }

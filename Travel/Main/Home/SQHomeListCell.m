@@ -43,7 +43,6 @@
     self.avatar = [UIImageView new];
     self.avatar.layer.cornerRadius = 20;
     self.avatar.layer.masksToBounds = YES;
-    self.avatar.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.avatar];
     
     self.userName = [UILabel new];
@@ -148,6 +147,7 @@
     self.content.text = model.content;
     self.commentNum.text = [NSString stringWithFormat:@"%ld", model.num];
     self.pubDate.text = [SQHelp formatterTimestamp:model.createTime / 1000];
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"icon_mine_avatar"]];
 }
 
 

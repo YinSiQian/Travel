@@ -29,7 +29,6 @@
     self.avatar = [UIImageView new];
     self.avatar.layer.cornerRadius = 5;
     self.avatar.layer.masksToBounds = YES;
-    self.avatar.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.avatar];
     
     self.userName = [UILabel new];
@@ -68,6 +67,7 @@
     _model = model;
     self.userName.text = model.name;
     self.content.text = model.content;
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"icon_mine_avatar"]];
 }
 
 

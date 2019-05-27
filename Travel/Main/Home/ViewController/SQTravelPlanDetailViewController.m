@@ -10,6 +10,8 @@
 #import "SQHomeListCell.h"
 #import "SQHomePlanCommentModel.h"
 #import "SQHomePlanCommentCell.h"
+#import "SQInputView.h"
+#import "SQLoginViewController.h"
 
 @interface SQTravelPlanDetailViewController ()
 
@@ -113,6 +115,22 @@
     }];
 }
 
+- (void)commitComment:(NSString *)comment {
+    if (![SQUserModel shared].isLogin) {
+        SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
+            [self commitComment:comment];
+        }];
+        [self presentViewController:login animated:YES completion:nil];
+    }
+    [self showHUDWithMessage:@"正在提交评论..."];
+    NSDictionary *params = @{@"pid": @(self.model.pid), @"content": comment};
+    [SQNetworkManager POST:sq_url_combine(plan_comment) parameters:params success:^(NSDictionary * _Nullable data) {
+        [self hideHUD];
+        [self loadData];
+    } fail:^(NSError * _Nullable error) {
+        [self hideHUD];
+    }];
+}
 
 - (void)loadMoreData {
     [self loadData];
@@ -167,7 +185,12 @@
 }
 
 - (void)comment {
-    
+    SQInputView *input = [[SQInputView alloc]initComplectionHandler:^(NSString * _Nonnull content) {
+        if (!content.isEmpty) {
+            [self commitComment:content];
+        }
+    }];
+    [input show];
 }
 
 #pragma mark -- getter

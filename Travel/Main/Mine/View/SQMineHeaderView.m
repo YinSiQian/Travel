@@ -29,9 +29,9 @@
 - (void)setupSubviews {
     
     self.avatar = [UIImageView new];
-    self.avatar.backgroundColor = [UIColor orangeColor];
     self.avatar.layer.cornerRadius = 40;
     self.avatar.layer.masksToBounds = YES;
+    self.avatar.image = [UIImage imageNamed:@"icon_mine_avatar"];
     [self addSubview:self.avatar];
     
     self.name = [UILabel new];

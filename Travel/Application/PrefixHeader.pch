@@ -14,6 +14,7 @@
 #import "UINavigationController+Extension.h"
 #import "UIColor+Extension.h"
 #import "UIViewController+Extension.h"
+#import "NSString+SQExtension.h"
 
 #import "SQMacros.h"
 #import "URLMacros.h"

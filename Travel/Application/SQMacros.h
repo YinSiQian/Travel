@@ -9,6 +9,12 @@
 #ifndef SQMacros_h
 #define SQMacros_h
 
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
 #define kScreen_width           [UIScreen mainScreen].bounds.size.width
 #define kScreen_height          [UIScreen mainScreen].bounds.size.height
 
@@ -17,7 +23,7 @@
 
 ///color
 
-#define kThemeColor             [UIColor colorWithHexString:@"05b14b"]
+#define kThemeColor             [UIColor colorWithHexString:@"0x1890FF"]
 #define kLightDarkColor         [UIColor colorWithHexString:@"a9a9a9" alpha:1.0]
 #define kMaskColor          [UIColor colorWithHexString:@"282828" alpha:0.8]
 #define kDarkBackColor      [UIColor colorWithHexString:@"f7f7f7" alpha:1.0]

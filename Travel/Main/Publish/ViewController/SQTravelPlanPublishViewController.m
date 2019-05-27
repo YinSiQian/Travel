@@ -49,7 +49,7 @@
     gl.frame = CGRectMake(0, 0, kScreen_width, kScreen_height);
     gl.startPoint = CGPointMake(0, 0);
     gl.endPoint = CGPointMake(0, 1);
-    gl.colors = @[(__bridge id)[UIColor colorWithHexString:@"5fa33c" alpha:0.8].CGColor, (__bridge id)[UIColor colorWithHexString:@"5fa33c" alpha:0.5].CGColor, (__bridge id)[UIColor colorWithHexString:@"5fa33c" alpha:0.3].CGColor];
+    gl.colors = @[(__bridge id)[UIColor colorWithHexString:@"0x1890FF" alpha:0.8].CGColor, (__bridge id)[UIColor colorWithHexString:@"0x1890FF" alpha:0.5].CGColor, (__bridge id)[UIColor colorWithHexString:@"0x1890FF" alpha:0.3].CGColor];
     gl.locations = @[@(0.0), @(0.3),@(1.0)];
     [self.view.layer addSublayer:gl];
     

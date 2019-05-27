@@ -35,6 +35,8 @@
 		8B1B0337228D98D900FA445A /* SQUserFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B0336228D98D900FA445A /* SQUserFavoriteViewController.m */; };
 		8B1B033A228D9A9600FA445A /* SQBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B0339228D9A9600FA445A /* SQBaseCell.m */; };
 		8B1B033D228D9B9000FA445A /* SQHomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B033C228D9B9000FA445A /* SQHomeListCell.m */; };
+		8B2EE557229B961B0013B6E0 /* SQInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EE556229B961B0013B6E0 /* SQInputView.m */; };
+		8B2EE55A229BC5720013B6E0 /* NSString+SQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EE559229BC5720013B6E0 /* NSString+SQExtension.m */; };
 		8B45F5F62294F5590036085E /* SQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B45F5F52294F5590036085E /* SQCalendarView.m */; };
 		8B45F5F92295004C0036085E /* SQHomePlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B45F5F82295004C0036085E /* SQHomePlanModel.m */; };
 		8BC8C1DE2295342B00AA4983 /* SQHomePlanCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1DD2295342B00AA4983 /* SQHomePlanCommentModel.m */; };
@@ -104,6 +106,10 @@
 		8B1B0339228D9A9600FA445A /* SQBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQBaseCell.m; sourceTree = "<group>"; };
 		8B1B033B228D9B9000FA445A /* SQHomeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQHomeListCell.h; sourceTree = "<group>"; };
 		8B1B033C228D9B9000FA445A /* SQHomeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQHomeListCell.m; sourceTree = "<group>"; };
+		8B2EE555229B961B0013B6E0 /* SQInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQInputView.h; sourceTree = "<group>"; };
+		8B2EE556229B961B0013B6E0 /* SQInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQInputView.m; sourceTree = "<group>"; };
+		8B2EE558229BC5720013B6E0 /* NSString+SQExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SQExtension.h"; sourceTree = "<group>"; };
+		8B2EE559229BC5720013B6E0 /* NSString+SQExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SQExtension.m"; sourceTree = "<group>"; };
 		8B45F5F42294F5590036085E /* SQCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQCalendarView.h; sourceTree = "<group>"; };
 		8B45F5F52294F5590036085E /* SQCalendarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQCalendarView.m; sourceTree = "<group>"; };
 		8B45F5F72295004C0036085E /* SQHomePlanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SQHomePlanModel.h; path = Travel/Common/SQHomePlanModel.h; sourceTree = SOURCE_ROOT; };
@@ -369,6 +375,8 @@
 				0AA952322282ACEF000018C7 /* UIView+Extension.m */,
 				0AA9523D2282B829000018C7 /* UINavigationController+Extension.h */,
 				0AA9523E2282B829000018C7 /* UINavigationController+Extension.m */,
+				8B2EE558229BC5720013B6E0 /* NSString+SQExtension.h */,
+				8B2EE559229BC5720013B6E0 /* NSString+SQExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -395,6 +403,8 @@
 				8B1B0339228D9A9600FA445A /* SQBaseCell.m */,
 				8B45F5F42294F5590036085E /* SQCalendarView.h */,
 				8B45F5F52294F5590036085E /* SQCalendarView.m */,
+				8B2EE555229B961B0013B6E0 /* SQInputView.h */,
+				8B2EE556229B961B0013B6E0 /* SQInputView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -557,6 +567,7 @@
 				0AA9520E22827536000018C7 /* SQNavigationController.m in Sources */,
 				0A210F8522841EBB005668CA /* SQUserModel.m in Sources */,
 				8B45F5F92295004C0036085E /* SQHomePlanModel.m in Sources */,
+				8B2EE55A229BC5720013B6E0 /* NSString+SQExtension.m in Sources */,
 				8B1B0331228D93A900FA445A /* SQSettingViewController.m in Sources */,
 				0AA9523F2282B829000018C7 /* UINavigationController+Extension.m in Sources */,
 				0AA951F422827450000018C7 /* main.m in Sources */,
@@ -564,6 +575,7 @@
 				0AA9522522827F9C000018C7 /* SQHTTPSessionManager.m in Sources */,
 				8B1B032E228D8F9800FA445A /* SQMineHeaderView.m in Sources */,
 				0AA952302282A989000018C7 /* UIColor+Extension.m in Sources */,
+				8B2EE557229B961B0013B6E0 /* SQInputView.m in Sources */,
 				0AA951E62282744E000018C7 /* AppDelegate.m in Sources */,
 				8BC8C1DE2295342B00AA4983 /* SQHomePlanCommentModel.m in Sources */,
 				0AA952332282ACEF000018C7 /* UIView+Extension.m in Sources */,

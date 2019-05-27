@@ -64,7 +64,7 @@
     }
     
     UIButton *publishBtn = [[UIButton alloc]initWithFrame:CGRectMake((kScreen_width - 35) / 2, (self.tabBar.height - 35) / 2, 35, 35)];
-    [publishBtn setImage:[UIImage imageNamed:@"publish"] forState:UIControlStateNormal];
+    [publishBtn setImage:[UIImage imageNamed:@"icon_publish"] forState:UIControlStateNormal];
     [publishBtn addTarget:self action:@selector(publishTravelPlan) forControlEvents:UIControlEventTouchUpInside];
     [self.tabBar addSubview:publishBtn];
     

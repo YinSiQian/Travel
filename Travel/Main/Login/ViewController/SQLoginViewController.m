@@ -135,10 +135,12 @@
 }
 
 - (void)dismiss {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    if (self.complectionHandler) {
-        self.complectionHandler();
-    }
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.complectionHandler) {
+            self.complectionHandler();
+        }
+    }];
+    
 }
 
 
