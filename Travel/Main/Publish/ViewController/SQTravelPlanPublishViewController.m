@@ -219,6 +219,7 @@
             [self hideHUD];
             [self showSuccessWithMessage:@"发布成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUserPublishedPlanNotification object:nil];
                 [self dismissViewControllerAnimated:YES completion:nil];
             });
             
@@ -228,7 +229,6 @@
     } else {
         [self showFailureWithMessage:@"请完善信息后,再发布."];
     }
-    
     
 }
 

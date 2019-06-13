@@ -32,5 +32,6 @@
 
 #define plan_pubList         @"travel/pubList"
 
+#define plan_report          @"travel/report"  //举报
 
 #endif /* URLMacros_h */

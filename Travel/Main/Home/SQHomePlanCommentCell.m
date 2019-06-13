@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) UILabel *content;
 
+@property (nonatomic, strong) UIButton *reportBtn;
+
 @end
 
 @implementation SQHomePlanCommentCell
@@ -41,6 +43,11 @@
     self.content.font = [UIFont systemFontOfSize:14];
     self.content.numberOfLines = 0;
     [self.contentView addSubview:self.content];
+    
+    self.reportBtn = [UIButton new];
+    [self.reportBtn setBackgroundImage:[UIImage imageNamed:@"icon_report"] forState:UIControlStateNormal];
+    [self.reportBtn addTarget:self action:@selector(report) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.reportBtn];
 }
 
 - (void)setupConstraints {
@@ -61,6 +68,12 @@
         make.right.equalTo(self.contentView).offset(-15);
         make.bottom.equalTo(self.contentView).offset(-15);
     }];
+    
+    [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.height.width.equalTo(@20);
+    }];
 }
 
 - (void)setModel:(SQHomePlanCommentModel *)model {
@@ -68,6 +81,19 @@
     self.userName.text = model.name;
     self.content.text = model.content;
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"icon_mine_avatar"]];
+}
+
+- (void)report {
+    UITableView *tableView;
+    if (@available(iOS 11, *)) {
+        tableView = (UITableView *)[self superview];
+    } else {
+        tableView = (UITableView *)[[self superview] superview];
+    }
+    NSIndexPath *indexPath = [tableView indexPathForCell:self];
+    if ([self.delegate respondsToSelector:@selector(reportIllegalUserOrContentWithIndex:)]) {
+        [self.delegate reportIllegalUserOrContentWithIndex:indexPath.row];
+    }
 }
 
 

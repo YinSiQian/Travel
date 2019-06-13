@@ -21,6 +21,10 @@
 #define host                    @"http://112.74.162.15:8090/"
 #define sq_url_combine(path)    [NSString stringWithFormat:@"%@%@", host, path]
 
+/// notification
+
+#define kUserPublishedPlanNotification @"kUserPublishedPlanNotification"
+
 ///color
 
 #define kThemeColor             [UIColor colorWithHexString:@"0x1890FF"]

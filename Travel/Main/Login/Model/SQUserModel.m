@@ -29,6 +29,7 @@
         self.phoneNum = [NSString stringWithFormat:@"%@", dict[@"usermobile"]];
         self.accessToken = dict[@"accessToken"];
         self.uid = [NSString stringWithFormat:@"%@", dict[@"id"]];
+        self.icon = [NSString stringWithFormat:@"%@", dict[@"icon"]];
         [self syncDataWithData:dict];
     }
 }

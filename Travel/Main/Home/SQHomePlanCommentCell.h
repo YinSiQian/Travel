@@ -11,7 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+@protocol SQHomePlanCommentCellDelegate <NSObject>
+
+- (void)reportIllegalUserOrContentWithIndex:(NSInteger)index;
+
+@end
+
 @interface SQHomePlanCommentCell : SQBaseCell
+
+@property (nonatomic, weak) id <SQHomePlanCommentCellDelegate> delegate;
 
 @property (nonatomic, strong) SQHomePlanCommentModel *model;
 

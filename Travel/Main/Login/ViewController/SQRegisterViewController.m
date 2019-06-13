@@ -74,7 +74,7 @@
     [self.loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:self.loginBtn];
     
-    @weakify(self);
+//    @weakify(self);
     
     RAC(self.loginBtn, enabled) = [RACSignal combineLatest:@[self.passwordTF.rac_textSignal, self.phoneTF.rac_textSignal, self.passwordTF2.rac_textSignal] reduce:^(NSString *password, NSString *username, NSString *password2) {
         if (username.length == 11 && password.length >= 6 && password2.length >= 6) {

@@ -57,9 +57,10 @@
 - (void)updateUserInfo {
     if ([SQUserModel shared].isLogin) {
         self.name.text = [SQUserModel shared].name;
-//        self.avatar sd_setImageWithURL:[NSURL URLWithString:[SQUserModel shared].] placeholderImage:<#(nullable UIImage *)#>
+        [self.avatar sd_setImageWithURL:[NSURL URLWithString:[SQUserModel shared].icon] placeholderImage:[UIImage imageNamed:@"icon_mine_avatar"]];
     } else {
         self.name.text = @"立即登录";
+        self.avatar.image = [UIImage imageNamed:@"icon_mine_avatar"];
     }
 }
 

@@ -39,6 +39,7 @@
 		8B2EE55A229BC5720013B6E0 /* NSString+SQExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EE559229BC5720013B6E0 /* NSString+SQExtension.m */; };
 		8B45F5F62294F5590036085E /* SQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B45F5F52294F5590036085E /* SQCalendarView.m */; };
 		8B45F5F92295004C0036085E /* SQHomePlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B45F5F82295004C0036085E /* SQHomePlanModel.m */; };
+		8B4C1A1022B1F6CA0005E5B8 /* SQReportIllegalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C1A0F22B1F6CA0005E5B8 /* SQReportIllegalView.m */; };
 		8BC8C1DE2295342B00AA4983 /* SQHomePlanCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1DD2295342B00AA4983 /* SQHomePlanCommentModel.m */; };
 		8BC8C1E12295353400AA4983 /* SQHomePlanCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1E02295353400AA4983 /* SQHomePlanCommentCell.m */; };
 		8BC8C1E422954C8D00AA4983 /* SQMinePublishPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1E322954C8D00AA4983 /* SQMinePublishPlanCell.m */; };
@@ -114,6 +115,8 @@
 		8B45F5F52294F5590036085E /* SQCalendarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQCalendarView.m; sourceTree = "<group>"; };
 		8B45F5F72295004C0036085E /* SQHomePlanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SQHomePlanModel.h; path = Travel/Common/SQHomePlanModel.h; sourceTree = SOURCE_ROOT; };
 		8B45F5F82295004C0036085E /* SQHomePlanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SQHomePlanModel.m; path = Travel/Common/SQHomePlanModel.m; sourceTree = SOURCE_ROOT; };
+		8B4C1A0E22B1F6CA0005E5B8 /* SQReportIllegalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQReportIllegalView.h; sourceTree = "<group>"; };
+		8B4C1A0F22B1F6CA0005E5B8 /* SQReportIllegalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQReportIllegalView.m; sourceTree = "<group>"; };
 		8BC8C1DC2295342B00AA4983 /* SQHomePlanCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SQHomePlanCommentModel.h; path = Travel/Common/SQHomePlanCommentModel.h; sourceTree = SOURCE_ROOT; };
 		8BC8C1DD2295342B00AA4983 /* SQHomePlanCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SQHomePlanCommentModel.m; path = Travel/Common/SQHomePlanCommentModel.m; sourceTree = SOURCE_ROOT; };
 		8BC8C1DF2295353400AA4983 /* SQHomePlanCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQHomePlanCommentCell.h; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 				8B45F5F52294F5590036085E /* SQCalendarView.m */,
 				8B2EE555229B961B0013B6E0 /* SQInputView.h */,
 				8B2EE556229B961B0013B6E0 /* SQInputView.m */,
+				8B4C1A0E22B1F6CA0005E5B8 /* SQReportIllegalView.h */,
+				8B4C1A0F22B1F6CA0005E5B8 /* SQReportIllegalView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				0AA952302282A989000018C7 /* UIColor+Extension.m in Sources */,
 				8B2EE557229B961B0013B6E0 /* SQInputView.m in Sources */,
 				0AA951E62282744E000018C7 /* AppDelegate.m in Sources */,
+				8B4C1A1022B1F6CA0005E5B8 /* SQReportIllegalView.m in Sources */,
 				8BC8C1DE2295342B00AA4983 /* SQHomePlanCommentModel.m in Sources */,
 				0AA952332282ACEF000018C7 /* UIView+Extension.m in Sources */,
 				0AA952452282BF03000018C7 /* SQHelp.m in Sources */,
@@ -717,7 +723,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QTXH4HQ34Z;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Travel/Application/PrefixHeader.pch";
 				INFOPLIST_FILE = Travel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -725,7 +731,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.travel.group.Travel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ysq.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -738,7 +744,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QTXH4HQ34Z;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Travel/Application/PrefixHeader.pch";
 				INFOPLIST_FILE = Travel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -746,7 +752,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.travel.group.Travel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ysq.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

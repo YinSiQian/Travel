@@ -27,11 +27,12 @@
     self.refreshType = SQRefreshTypeAll;
     self.page = 1;
     [self setupSubviews];
+    [self.sq_tableView.mj_header beginRefreshing];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:kUserPublishedPlanNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.sq_tableView.mj_header beginRefreshing];
 }
 
 - (void)setupSubviews {
@@ -105,6 +106,10 @@
         _models = [NSMutableArray array];
     }
     return _models;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

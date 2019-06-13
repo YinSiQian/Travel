@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *accessToken;
 
+@property (nonatomic, copy) NSString *icon;
+
 @property (nonatomic, assign, readonly) BOOL isLogin;
 
 
