@@ -33,4 +33,11 @@
     
 }
 
++ (NSString *)formatterTimestampToMonthDay:(long)timestamp {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"MM-dd HH:mm:ss";
+    return [formatter stringFromDate:date];
+}
+
 @end

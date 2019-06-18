@@ -72,7 +72,7 @@
     [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(15);
         make.right.equalTo(self.contentView).offset(-15);
-        make.height.width.equalTo(@20);
+        make.height.width.equalTo(@25);
     }];
 }
 

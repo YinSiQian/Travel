@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger detailHeight;
 
+@property (nonatomic, assign) NSInteger pid;
+
 @end
 
 NS_ASSUME_NONNULL_END

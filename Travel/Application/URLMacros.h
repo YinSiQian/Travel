@@ -30,8 +30,12 @@
 
 #define detail               @"travel/detail"
 
+#define plan_comment_list    @"travel/commentList"
+
 #define plan_pubList         @"travel/pubList"
 
 #define plan_report          @"travel/report"  //举报
+
+#define reply_msg            @"msg/list"
 
 #endif /* URLMacros_h */

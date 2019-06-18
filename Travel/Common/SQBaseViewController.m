@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.emptyView = [SQEmptyView new];
     self.tableViewStyle = UITableViewStylePlain;
     self.refreshType = SQRefreshTypeNone;
     if (@available(iOS 11, *)) {

@@ -43,6 +43,10 @@
 		8BC8C1DE2295342B00AA4983 /* SQHomePlanCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1DD2295342B00AA4983 /* SQHomePlanCommentModel.m */; };
 		8BC8C1E12295353400AA4983 /* SQHomePlanCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1E02295353400AA4983 /* SQHomePlanCommentCell.m */; };
 		8BC8C1E422954C8D00AA4983 /* SQMinePublishPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1E322954C8D00AA4983 /* SQMinePublishPlanCell.m */; };
+		8BE726BD22B8C77600A998CC /* SQMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726BC22B8C77600A998CC /* SQMessageViewController.m */; };
+		8BE726C022B8C78400A998CC /* SQMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726BF22B8C78400A998CC /* SQMessageModel.m */; };
+		8BE726C322B8C79600A998CC /* SQMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726C222B8C79600A998CC /* SQMessageCell.m */; };
+		8BE726C622B8D85C00A998CC /* SQEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726C522B8D85C00A998CC /* SQEmptyView.m */; };
 		9EFD04FC6BDEA48DC1E5F476 /* Pods_Travel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD25FB941D4DB46EEAD2FCC /* Pods_Travel.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +128,14 @@
 		8BC8C1E222954C8D00AA4983 /* SQMinePublishPlanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMinePublishPlanCell.h; sourceTree = "<group>"; };
 		8BC8C1E322954C8D00AA4983 /* SQMinePublishPlanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMinePublishPlanCell.m; sourceTree = "<group>"; };
 		8BCC6FEE22832022003CFBC2 /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
+		8BE726BB22B8C77600A998CC /* SQMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMessageViewController.h; sourceTree = "<group>"; };
+		8BE726BC22B8C77600A998CC /* SQMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMessageViewController.m; sourceTree = "<group>"; };
+		8BE726BE22B8C78400A998CC /* SQMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMessageModel.h; sourceTree = "<group>"; };
+		8BE726BF22B8C78400A998CC /* SQMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMessageModel.m; sourceTree = "<group>"; };
+		8BE726C122B8C79600A998CC /* SQMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMessageCell.h; sourceTree = "<group>"; };
+		8BE726C222B8C79600A998CC /* SQMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMessageCell.m; sourceTree = "<group>"; };
+		8BE726C422B8D85C00A998CC /* SQEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQEmptyView.h; sourceTree = "<group>"; };
+		8BE726C522B8D85C00A998CC /* SQEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQEmptyView.m; sourceTree = "<group>"; };
 		C97C048CE8058DC781AD1F34 /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +201,7 @@
 		0AA951FB22827471000018C7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8BE726B722B8C74900A998CC /* Message */,
 				0AA952152282757B000018C7 /* Login */,
 				0AA95206228274DD000018C7 /* Publish */,
 				0AA95202228274BD000018C7 /* Mine */,
@@ -410,6 +423,8 @@
 				8B2EE556229B961B0013B6E0 /* SQInputView.m */,
 				8B4C1A0E22B1F6CA0005E5B8 /* SQReportIllegalView.h */,
 				8B4C1A0F22B1F6CA0005E5B8 /* SQReportIllegalView.m */,
+				8BE726C422B8D85C00A998CC /* SQEmptyView.h */,
+				8BE726C522B8D85C00A998CC /* SQEmptyView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -420,6 +435,43 @@
 				1BD25FB941D4DB46EEAD2FCC /* Pods_Travel.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BE726B722B8C74900A998CC /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				8BE726BA22B8C75F00A998CC /* Controller */,
+				8BE726B922B8C75B00A998CC /* View */,
+				8BE726B822B8C75500A998CC /* Model */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		8BE726B822B8C75500A998CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BE726BE22B8C78400A998CC /* SQMessageModel.h */,
+				8BE726BF22B8C78400A998CC /* SQMessageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BE726B922B8C75B00A998CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BE726C122B8C79600A998CC /* SQMessageCell.h */,
+				8BE726C222B8C79600A998CC /* SQMessageCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BE726BA22B8C75F00A998CC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BE726BB22B8C77600A998CC /* SQMessageViewController.h */,
+				8BE726BC22B8C77600A998CC /* SQMessageViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E043442E883D6298156BC460 /* Pods */ = {
@@ -570,12 +622,16 @@
 				0AA9523C2282B2A4000018C7 /* SQTravelPlanPublishViewController.m in Sources */,
 				0AA9520B22827517000018C7 /* SQRootViewController.m in Sources */,
 				0AA9520E22827536000018C7 /* SQNavigationController.m in Sources */,
+				8BE726C322B8C79600A998CC /* SQMessageCell.m in Sources */,
 				0A210F8522841EBB005668CA /* SQUserModel.m in Sources */,
 				8B45F5F92295004C0036085E /* SQHomePlanModel.m in Sources */,
 				8B2EE55A229BC5720013B6E0 /* NSString+SQExtension.m in Sources */,
 				8B1B0331228D93A900FA445A /* SQSettingViewController.m in Sources */,
 				0AA9523F2282B829000018C7 /* UINavigationController+Extension.m in Sources */,
+				8BE726BD22B8C77600A998CC /* SQMessageViewController.m in Sources */,
 				0AA951F422827450000018C7 /* main.m in Sources */,
+				8BE726C622B8D85C00A998CC /* SQEmptyView.m in Sources */,
+				8BE726C022B8C78400A998CC /* SQMessageModel.m in Sources */,
 				0AA952422282BE95000018C7 /* SQDeviceMsg.m in Sources */,
 				0AA9522522827F9C000018C7 /* SQHTTPSessionManager.m in Sources */,
 				8B1B032E228D8F9800FA445A /* SQMineHeaderView.m in Sources */,

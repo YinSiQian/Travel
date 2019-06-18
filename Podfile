@@ -13,5 +13,6 @@ target 'Travel' do
   pod 'ReactiveObjC', '~> 3.1.0'
   pod 'SDWebImage', '~> 5.0.1'
   pod 'FSCalendar', '~> 2.8.0'
+  pod 'JPush', '~> 3.2.0'
   
 end

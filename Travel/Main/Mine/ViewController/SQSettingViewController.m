@@ -63,12 +63,9 @@
             [self showMessage:@"你还未登录哦..."];
             return;
         }
-        [self showHUDWithMessage:@"正在退出登录..."];
         [[SQUserModel shared] clear];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self hideHUD];
-            [self.navigationController popViewControllerAnimated:YES];
-        });
+        [self.navigationController popViewControllerAnimated:YES];
+
     }
 }
 

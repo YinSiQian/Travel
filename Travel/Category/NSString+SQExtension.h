@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)isEmpty;
 
+- (CGSize)textSize:(CGSize)size font:(UIFont *)font;
+
+- (CGSize)textSize:(CGSize)size font:(UIFont *)font style:(NSParagraphStyle *)style;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

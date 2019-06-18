@@ -32,6 +32,7 @@
     self.page = 1;
     self.refreshType = SQRefreshTypeAll;
     [self setupSubviews];
+    [self loadPlanInfo];
     [self checkPlanIsLove];
 }
 
@@ -39,10 +40,8 @@
     
     [self.view addSubview:self.sq_tableView];
     self.sq_tableView.frame = CGRectMake(0, self.safeTop, kScreen_width, kScreen_height - self.safeBottom - 50 - self.safeTop);
-    [self.sq_tableView.mj_header beginRefreshing];
     self.sq_tableView.estimatedRowHeight = 80;
     self.sq_tableView.rowHeight = UITableViewAutomaticDimension;
-    
     
     SQHomeListCell *headerView = [[SQHomeListCell alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, self.detailHeight)];
     headerView.frame = CGRectMake(0, 0, kScreen_width, self.detailHeight);
@@ -65,13 +64,31 @@
 
 #pragma mark -- load Data
 
+- (void)loadPlanInfo {
+    if (self.model) {
+        [self.sq_tableView.mj_header beginRefreshing];
+        return;
+    }
+    NSDictionary *params = @{@"pid": @(self.pid)};
+    [SQNetworkManager GET:sq_url_combine(detail) parameters:params success:^(NSDictionary * _Nullable data) {
+        NSDictionary *dict = data[@"data"];
+        self.model = [SQHomePlanModel mj_objectWithKeyValues:dict];
+        [self calculateInfoHeight];
+    } fail:^(NSError * _Nullable error) {
+        
+    }];
+    
+}
+
+
 - (void)loadData {
     
     NSDictionary *params = @{@"pid": @(self.model.pid),
                              @"page": @(self.page),
                              @"rows": @10};
-    [SQNetworkManager GET:sq_url_combine(detail) parameters:params success:^(NSDictionary * _Nonnull data) {
+    [SQNetworkManager GET:sq_url_combine(plan_comment_list) parameters:params success:^(NSDictionary * _Nonnull data) {
         if (self.page == 1) {
+            [self.comments  removeAllObjects];
             [self.sq_tableView.mj_header endRefreshing];
         } else {
             [self.sq_tableView.mj_footer endRefreshing];
@@ -94,6 +111,9 @@
 
 - (void)checkPlanIsLove {
     if (![SQUserModel shared].isLogin) {
+        return;
+    }
+    if (!self.model) {
         return;
     }
     [SQNetworkManager POST:sq_url_combine(plan_isLove) parameters:@{@"pid": @(self.model.pid)} success:^(NSDictionary * _Nullable data) {
@@ -128,18 +148,12 @@
         [self hideHUD];
         [self showSuccessWithMessage:@"举报内容提交成功!"];
     } fail:^(NSError * _Nullable error) {
-        
+        [self hideHUD];
     }];
 
 }
 
 - (void)commitComment:(NSString *)comment {
-    if (![SQUserModel shared].isLogin) {
-        SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
-            [self commitComment:comment];
-        }];
-        [self presentViewController:login animated:YES completion:nil];
-    }
     [self showHUDWithMessage:@"正在提交评论..."];
     NSDictionary *params = @{@"pid": @(self.model.pid), @"content": comment};
     [SQNetworkManager POST:sq_url_combine(plan_comment) parameters:params success:^(NSDictionary * _Nullable data) {
@@ -198,6 +212,16 @@
 
 #pragma mark -- private method
 
+- (void)calculateInfoHeight {
+    CGSize size = [self.model.content textSize:CGSizeMake(kScreen_width - 80, MAXFLOAT) font:[UIFont systemFontOfSize:15]];
+    CGFloat currentHeight = size.height + 180;
+    SQHomeListCell *header = (SQHomeListCell *)self.sq_tableView.tableHeaderView;
+    header.frame = CGRectMake(0, 0, kScreen_width, currentHeight);
+    header.model = self.model;
+    [self.sq_tableView.mj_header beginRefreshing];
+    [self checkPlanIsLove];
+}
+
 - (void)refreshPlanFavoriteStatus {
     if (self.isLove.boolValue) {
         self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"icon_plan_love_selected"];
@@ -214,10 +238,13 @@
 
 - (void)reportIllegalContentWithReportedUid:(NSInteger)reportedUid {
     if (![SQUserModel shared].isLogin) {
+        
         SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
             [self reportIllegalContentWithReportedUid:reportedUid];
         }];
-        [self presentViewController:login animated:YES completion:nil];
+        SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:login];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
     }
     SQReportIllegalView *report = [[SQReportIllegalView alloc]initComplectionHandler:^(NSString * _Nonnull content) {
         [self reportWithReportedUid:reportedUid content:content];
@@ -231,6 +258,14 @@
 }
 
 - (void)comment {
+    if (![SQUserModel shared].isLogin) {
+        SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
+            [self comment];
+        }];
+        SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:login];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
+    }
     SQInputView *input = [[SQInputView alloc]initComplectionHandler:^(NSString * _Nonnull content) {
         if (!content.isEmpty) {
             [self commitComment:content];

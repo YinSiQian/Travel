@@ -136,8 +136,10 @@
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:^{
-        if (self.complectionHandler) {
-            self.complectionHandler();
+        if ([SQUserModel shared].isLogin) {
+            if (self.complectionHandler) {
+                self.complectionHandler();
+            }
         }
     }];
     

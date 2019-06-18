@@ -72,6 +72,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (![SQUserModel shared].isLogin) {
+        [self userLogin];
+        return;
+    }
     if (indexPath.row == 0) {
         SQUserPublishedViewController *pb = [SQUserPublishedViewController new];
         [self.navigationController pushViewController:pb animated:YES];

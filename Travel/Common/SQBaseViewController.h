@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SQEmptyView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +26,8 @@ typedef NS_ENUM(NSUInteger, SQRefreshType) {
 @property (nonatomic, assign) UITableViewStyle tableViewStyle;
 
 @property (nonatomic, strong) UITableView *sq_tableView;
+
+@property (nonatomic, strong) SQEmptyView *emptyView;
 
 //交由子类重载, 加载更多数据
 - (void)loadMoreData;

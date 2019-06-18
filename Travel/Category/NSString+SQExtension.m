@@ -24,4 +24,16 @@
     }
 }
 
+- (CGSize)textSize:(CGSize)size font:(UIFont *)font {
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineBreakMode:NSLineBreakByCharWrapping];
+    return [self textSize:size font:font style:style];
+}
+
+- (CGSize)textSize:(CGSize)size font:(UIFont *)font style:(NSParagraphStyle *)style {
+    NSDictionary *attributes = @{NSFontAttributeName: font,
+                                 NSParagraphStyleAttributeName: style};
+    return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributes context:nil].size;
+}
+
 @end

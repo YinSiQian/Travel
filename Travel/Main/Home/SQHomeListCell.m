@@ -140,6 +140,9 @@
 }
 
 - (void)setModel:(SQHomePlanModel *)model {
+    if (!model) {
+        return;
+    }
     _model = model;
     self.userName.text = model.userName;
     self.title.text = model.title;

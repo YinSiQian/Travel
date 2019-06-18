@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)formatterTimestamp:(long)timestamp;
 
++ (NSString *)formatterTimestampToMonthDay:(long)timestamp;
 
 @end
 
