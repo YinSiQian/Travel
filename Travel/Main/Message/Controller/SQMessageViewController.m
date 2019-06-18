@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:kUserLogout object:nil];
     [self setupSubviews];
 }
 
@@ -41,9 +42,6 @@
 - (void)refreshViewForUserStatusChanged {
     
     if (![SQUserModel shared].isLogin) {
-        [self.data removeAllObjects];
-        [self.sq_tableView reloadData];
-        [self.emptyView removeFromSuperview];
         self.refreshType = SQRefreshTypeNone;
         [self.sq_tableView addSubview:self.loginBtn];
     } else {
@@ -117,6 +115,12 @@
 }
 
 #pragma mark -- events
+
+- (void)clearData {
+    [self.data removeAllObjects];
+    [self.sq_tableView reloadData];
+    [self.emptyView removeFromSuperview];
+}
 
 - (void)userLogin {
     SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{

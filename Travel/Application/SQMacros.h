@@ -25,6 +25,8 @@
 
 #define kUserPublishedPlanNotification @"kUserPublishedPlanNotification"
 
+#define kUserLogout     @"kUserLogout"
+
 ///color
 
 #define kThemeColor             [UIColor colorWithHexString:@"0x1890FF"]

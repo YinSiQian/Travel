@@ -63,6 +63,7 @@
             [self showMessage:@"你还未登录哦..."];
             return;
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogout object:nil];
         [[SQUserModel shared] clear];
         [self.navigationController popViewControllerAnimated:YES];
 
