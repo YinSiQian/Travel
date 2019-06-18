@@ -124,6 +124,11 @@
     [self hide];
 }
 
+- (void)setPlaceholder:(NSString *)placeholder {
+    _placeholder = placeholder;
+    self.textView.placeholder = _placeholder;
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     CGPoint point = [touches.allObjects.firstObject locationInView:self];

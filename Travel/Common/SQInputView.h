@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initComplectionHandler:(void(^)(NSString *content))complection;
 
+@property (nonatomic, copy) NSString *placeholder;
+
 - (void)show;
 
 - (void)hide;

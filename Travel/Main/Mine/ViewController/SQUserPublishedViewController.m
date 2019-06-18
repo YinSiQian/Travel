@@ -63,6 +63,7 @@
             [self.sq_tableView.mj_footer endRefreshingWithNoMoreData];
         }
         [self.sq_tableView reloadData];
+        [self handleEmptyData];
         
     } fail:^(NSError * _Nullable error) {
         [self.sq_tableView.mj_footer endRefreshing];
@@ -97,6 +98,17 @@
     plan.model = self.models[indexPath.row];
     plan.detailHeight = cell.height;
     [self.navigationController pushViewController:plan animated:YES];
+}
+
+#pragma mark -- private method
+
+- (void)handleEmptyData {
+    if (self.models.count > 0) {
+        [self.emptyView removeFromSuperview];
+    } else {
+        self.emptyView.message = @"您还没有发布任何帖子呢!";
+        [self.sq_tableView addSubview:self.emptyView];
+    }
 }
 
 #pragma mark -- getter

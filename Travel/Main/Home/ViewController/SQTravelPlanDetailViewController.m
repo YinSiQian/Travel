@@ -127,6 +127,12 @@
 
 - (void)favoritePlan {
     if (![SQUserModel shared].isLogin) {
+        SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
+            [self favoritePlan];
+        }];
+        SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:login];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
         return;
     }
     NSDictionary *param = @{@"pid": @(self.model.pid), @"isLove": self.isLove};
@@ -201,6 +207,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SQHomePlanCommentModel *model = self.comments[indexPath.row];
+    [self commentWithName:[NSString stringWithFormat:@"回复%@:", model.name]];
+}
+
 #pragma mark -- SQHomePlanCommentCellDelegate
 
 - (void)reportIllegalUserOrContentWithIndex:(NSInteger)index {
@@ -258,9 +269,13 @@
 }
 
 - (void)comment {
+    [self commentWithName:@"输入你的想法"];
+}
+
+- (void)commentWithName:(NSString *)name {
     if (![SQUserModel shared].isLogin) {
         SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
-            [self comment];
+            [self commentWithName:name];
         }];
         SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:login];
         [self presentViewController:nav animated:YES completion:nil];
@@ -268,9 +283,11 @@
     }
     SQInputView *input = [[SQInputView alloc]initComplectionHandler:^(NSString * _Nonnull content) {
         if (!content.isEmpty) {
+            content = [NSString stringWithFormat:@"%@%@", name, content];
             [self commitComment:content];
         }
     }];
+    input.placeholder = name;
     [input show];
 }
 
