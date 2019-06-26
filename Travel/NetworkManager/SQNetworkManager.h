@@ -19,6 +19,14 @@ typedef void(^failure)(NSError * _Nullable error);
 
 + (NSURLSessionDataTask *)POST:(NSString *)urlString parameters:(nullable NSDictionary *)parameters success:(complectionHandler)success fail:(failure)fail;
 
++ (NSURLSessionDataTask *)fileUpload:(NSString *)urlString
+                          parameters:(NSDictionary *)parameters
+                                name:(NSString *)name
+                               image:(UIImage *)image
+                            progress:(void(^)(CGFloat progress))progress
+                             success:(complectionHandler)success
+                                fail:(failure)fail;
+
 @end
 
 NS_ASSUME_NONNULL_END

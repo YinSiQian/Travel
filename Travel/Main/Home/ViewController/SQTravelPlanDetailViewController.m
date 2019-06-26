@@ -170,6 +170,17 @@
     }];
 }
 
+- (void)replyUserWithComment:(NSString *)comment uid:(NSInteger)uid {
+    [self showHUDWithMessage:@"正在提交评论..."];
+    NSDictionary *params = @{@"pid": @(self.model.pid), @"content": comment, @"uid": @(uid)};
+    [SQNetworkManager POST:sq_url_combine(travel_reply_user) parameters:params success:^(NSDictionary * _Nullable data) {
+        [self hideHUD];
+        [self.sq_tableView.mj_header beginRefreshing];
+    } fail:^(NSError * _Nullable error) {
+        [self hideHUD];
+    }];
+}
+
 - (void)loadMoreData {
     [self loadData];
 }
@@ -209,7 +220,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SQHomePlanCommentModel *model = self.comments[indexPath.row];
-    [self commentWithName:[NSString stringWithFormat:@"回复%@:", model.name]];
+    [self replyUser:[NSString stringWithFormat:@"回复%@:", model.name] uid:model.uid];
 }
 
 #pragma mark -- SQHomePlanCommentCellDelegate
@@ -272,6 +283,25 @@
     [self commentWithName:@"输入你的想法"];
 }
 
+- (void)replyUser:(NSString *)content uid:(NSInteger)uid {
+    if (![SQUserModel shared].isLogin) {
+        SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
+            [self replyUserWithComment:content uid:uid];
+        }];
+        SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:login];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
+    }
+    SQInputView *input = [[SQInputView alloc]initComplectionHandler:^(NSString * _Nonnull result) {
+        if (!result.isEmpty) {
+            result = [NSString stringWithFormat:@"%@%@", content, result];
+            [self replyUserWithComment:result uid:uid];
+        }
+    }];
+    input.placeholder = content;
+    [input show];
+}
+
 - (void)commentWithName:(NSString *)name {
     if (![SQUserModel shared].isLogin) {
         SQLoginViewController *login = [[SQLoginViewController alloc]initWithFinishAction:^{
@@ -283,7 +313,6 @@
     }
     SQInputView *input = [[SQInputView alloc]initComplectionHandler:^(NSString * _Nonnull content) {
         if (!content.isEmpty) {
-            content = [NSString stringWithFormat:@"%@%@", name, content];
             [self commitComment:content];
         }
     }];

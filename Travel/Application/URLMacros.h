@@ -38,4 +38,12 @@
 
 #define reply_msg            @"msg/list"
 
+#define update_name          @"user/updateName"  //修改用户名
+
+#define upload               @"file/upload"      //上传图片
+
+#define update_user_avatar   @"user/updateAvatar" //修改用户头像
+
+#define travel_reply_user    @"travel/reply"      //回复某个用户评论
+
 #endif /* URLMacros_h */

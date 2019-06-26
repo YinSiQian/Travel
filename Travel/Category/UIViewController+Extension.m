@@ -7,7 +7,6 @@
 //
 
 #import "UIViewController+Extension.h"
-#import "MBProgressHUD.h"
 #import <objc/runtime.h>
 
 @implementation UIViewController (Extension)
@@ -59,7 +58,6 @@
     hud.removeFromSuperViewOnHide = YES;
     hud.label.text = message;
     [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:2.0];
 }
 
 - (void)showMessage:(NSString *)message {
@@ -97,6 +95,14 @@
     hud.label.text = message;
     
     [hud hideAnimated:YES afterDelay:2.f];
+}
+
+- (MBProgressHUD *)showHUDWithMessage:(NSString *)message progress:(CGFloat)progress {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.removeFromSuperViewOnHide = YES;
+    hud.label.text = message;
+    return hud;
 }
 
 - (void)hideHUD {

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showFailureWithMessage:(NSString *)message;
 
 - (void)hideHUD;
+
+- (MBProgressHUD *)showHUDWithMessage:(NSString *)message progress:(CGFloat)progress;
 
 @end
 

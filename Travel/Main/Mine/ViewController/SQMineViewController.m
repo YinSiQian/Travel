@@ -12,6 +12,7 @@
 #import "SQSettingViewController.h"
 #import "SQUserFavoriteViewController.h"
 #import "SQUserPublishedViewController.h"
+#import "SQUserInfoViewController.h"
 
 
 @interface SQMineViewController ()<SQMineHeaderViewDelegate>
@@ -88,8 +89,15 @@
 #pragma mark -- SQMineHeaderViewDelegate
 
 - (void)userLogin {
-    SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:[SQLoginViewController new]];
-    [self presentViewController:nav animated:YES completion:nil];
+    if ([SQUserModel shared].isLogin) {
+        
+        SQUserInfoViewController *info = [SQUserInfoViewController new];
+        [self.navigationController pushViewController:info animated:YES];
+    } else {
+        SQNavigationController *nav = [[SQNavigationController alloc]initWithRootViewController:[SQLoginViewController new]];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    
 }
 
 #pragma mark -- events

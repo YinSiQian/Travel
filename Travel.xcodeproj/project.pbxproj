@@ -43,6 +43,8 @@
 		8BC8C1DE2295342B00AA4983 /* SQHomePlanCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1DD2295342B00AA4983 /* SQHomePlanCommentModel.m */; };
 		8BC8C1E12295353400AA4983 /* SQHomePlanCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1E02295353400AA4983 /* SQHomePlanCommentCell.m */; };
 		8BC8C1E422954C8D00AA4983 /* SQMinePublishPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8C1E322954C8D00AA4983 /* SQMinePublishPlanCell.m */; };
+		8BE240D622C32226007EA545 /* SQUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE240D522C32226007EA545 /* SQUserInfoViewController.m */; };
+		8BE240D922C32377007EA545 /* SQUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE240D822C32377007EA545 /* SQUserInfoCell.m */; };
 		8BE726BD22B8C77600A998CC /* SQMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726BC22B8C77600A998CC /* SQMessageViewController.m */; };
 		8BE726C022B8C78400A998CC /* SQMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726BF22B8C78400A998CC /* SQMessageModel.m */; };
 		8BE726C322B8C79600A998CC /* SQMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE726C222B8C79600A998CC /* SQMessageCell.m */; };
@@ -142,6 +144,10 @@
 		8BC8C1E222954C8D00AA4983 /* SQMinePublishPlanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMinePublishPlanCell.h; sourceTree = "<group>"; };
 		8BC8C1E322954C8D00AA4983 /* SQMinePublishPlanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMinePublishPlanCell.m; sourceTree = "<group>"; };
 		8BCC6FEE22832022003CFBC2 /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
+		8BE240D422C32226007EA545 /* SQUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQUserInfoViewController.h; sourceTree = "<group>"; };
+		8BE240D522C32226007EA545 /* SQUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQUserInfoViewController.m; sourceTree = "<group>"; };
+		8BE240D722C32377007EA545 /* SQUserInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQUserInfoCell.h; sourceTree = "<group>"; };
+		8BE240D822C32377007EA545 /* SQUserInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQUserInfoCell.m; sourceTree = "<group>"; };
 		8BE726BB22B8C77600A998CC /* SQMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMessageViewController.h; sourceTree = "<group>"; };
 		8BE726BC22B8C77600A998CC /* SQMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQMessageViewController.m; sourceTree = "<group>"; };
 		8BE726BE22B8C78400A998CC /* SQMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQMessageModel.h; sourceTree = "<group>"; };
@@ -334,6 +340,8 @@
 				8B1B032D228D8F9800FA445A /* SQMineHeaderView.m */,
 				8BC8C1E222954C8D00AA4983 /* SQMinePublishPlanCell.h */,
 				8BC8C1E322954C8D00AA4983 /* SQMinePublishPlanCell.m */,
+				8BE240D722C32377007EA545 /* SQUserInfoCell.h */,
+				8BE240D822C32377007EA545 /* SQUserInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +357,8 @@
 				8B1B0333228D98C700FA445A /* SQUserPublishedViewController.m */,
 				8B1B0335228D98D900FA445A /* SQUserFavoriteViewController.h */,
 				8B1B0336228D98D900FA445A /* SQUserFavoriteViewController.m */,
+				8BE240D422C32226007EA545 /* SQUserInfoViewController.h */,
+				8BE240D522C32226007EA545 /* SQUserInfoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -725,10 +735,12 @@
 				0AA9521B228275A1000018C7 /* SQLoginViewController.m in Sources */,
 				0AA952392282B149000018C7 /* SQTravelPlanDetailViewController.m in Sources */,
 				0AA9522222827E92000018C7 /* SQNetworkManager.m in Sources */,
+				8BE240D922C32377007EA545 /* SQUserInfoCell.m in Sources */,
 				8B1B0334228D98C700FA445A /* SQUserPublishedViewController.m in Sources */,
 				0AA9522D22828596000018C7 /* UIViewController+Extension.m in Sources */,
 				0AA952142282756A000018C7 /* SQMineViewController.m in Sources */,
 				0AA9524B2282DA03000018C7 /* SQTextView.m in Sources */,
+				8BE240D622C32226007EA545 /* SQUserInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

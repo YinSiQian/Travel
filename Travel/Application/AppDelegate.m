@@ -32,6 +32,9 @@
 }
 
 - (void)configJPushWithOptions:(NSDictionary *)launchOptions {
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
     if (@available(iOS 12.0, *)) {
         entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
@@ -72,6 +75,7 @@
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
     }
+    [UIApplication sharedApplication].applicationIconBadgeNumber -= 1;
     completionHandler();  // 系统要求执行这个方法
 }
 

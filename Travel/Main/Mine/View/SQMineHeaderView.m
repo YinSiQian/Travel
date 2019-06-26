@@ -65,11 +65,10 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (![SQUserModel shared].isLogin) {
-        if ([self.delegate respondsToSelector:@selector(userLogin)]) {
-            [self.delegate userLogin];
-        }
+    if ([self.delegate respondsToSelector:@selector(userLogin)]) {
+        [self.delegate userLogin];
     }
+    
 
 }
 
